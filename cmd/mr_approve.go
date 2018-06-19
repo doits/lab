@@ -9,9 +9,9 @@ import (
 )
 
 var mrApproveCmd = &cobra.Command{
-	Use:     "close [remote] <id>",
-	Aliases: []string{"delete"},
-	Short:   "Close merge request",
+	Use:     "approve [remote] <id>",
+	Aliases: []string{},
+	Short:   "Approve merge request",
 	Long:    ``,
 	Args:    cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
@@ -25,11 +25,11 @@ var mrApproveCmd = &cobra.Command{
 			log.Fatal(err)
 		}
 
-		err = lab.MRClose(p.ID, int(id))
+		err = lab.MRApprove(p.ID, int(id))
 		if err != nil {
 			log.Fatal(err)
 		}
-		fmt.Printf("Merge Request #%d closed\n", id)
+		fmt.Printf("Merge Request #%d approved\n", id)
 	},
 }
 
