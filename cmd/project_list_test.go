@@ -11,7 +11,7 @@ import (
 func Test_projectList(t *testing.T) {
 	t.Parallel()
 	repo := copyTestRepo(t)
-	cmd := exec.Command("../lab_bin", "project", "list")
+	cmd := exec.Command("../lab_bin", "project", "list", "-m")
 	cmd.Dir = repo
 
 	b, err := cmd.CombinedOutput()
